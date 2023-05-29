@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./img/flamingtext__26068056772646949.png">
+  <title>CRUD</title>
+</head>
+
+<body>
+
+  <nav class="navbar bg-light mb-3 shadow ">
+    <div class="" style="width: 100vw;">
+      <a class="navbar-brand d-inline-block" href="#">
+        <img src="./img/anonymous.png" alt="Caja-Bacia" width="50" height="28" class="d-inline-block align-text-top">
+        <h4 class="d-inline-block ">Alista Tus Productos</h4>
+      </a>
+    </div>
+  </nav>
+
+  <div class="shadow container p-3" style="background-color: aliceblue;">
+    <div class=" mb-3">
+      <div class=" d-flex justify-content-around">
+        <h1>Productos</h1>
+        <button type="button" name="Nuevo Producto" class="btn btn-primary" data-bs-toggle="modal"
+          data-bs-target="#staticBackdrop">
+          Nuevo Producto
+        </button>
+      </div>
+      <div class=" table-responsive" style="padding: 10px;">
+        <table class="table table-dark table-striped-columns border-light border-opacity-50 shadow "
+          style="width: 100%;">
+          <thead>
+            <tr class="text-center">
+              <th scope="col">#</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Descripcion</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Categoria</th>
+              <th scope="col">Imagen</th>
+              <th scope="col">Section</th>
+            </tr>
+          </thead>
+          <tbody id="Tablas_Creadas_Contenedor">
+            <td colspan="100" class="text-center">
+              <div class="spinner-border text-info" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          eliminar
+          <div class="mt-2 pt-2 border-top">
+            <button type="button" class="btn btn-primary btn-sm" id="btnComfirm">Si, Eliminar</button>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content ">
+        <div class="modal-header bg-dark bg-opacity-50 ">
+          <h1 class="modal-title fs-5 text-white" id="staticBackdropLabel">Ingresa Nuevo Producto</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body bg-primary bg-opacity-50">
+          <div class="container-fluid">
+            <div class="spinner-border text-secondary" id="spinner_Modal" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+            <form class="row g-3 d-none" id="myForm">
+              <div class="mt-3">
+                <label for="message-text" class="form-label">Name</label>
+                <input type="text" class="form-control name">
+              </div>
+              <div class="mt-3">
+                <label for="message-text" class="form-label">Description</label>
+                <textarea type="text" class="form-control Description"></textarea>
+              </div>
+              <div class="mt-3">
+                <label for="message-text" class="form-label">Price</label>
+                <input type="number" class="form-control Price">
+              </div>
+              <div class="mt-3">
+                <label for="message-text" class="form-label">Category</label>
+                <!--<input type="number" class="form-control Category">-->
+                <select id="Select_category" class="form-select" aria-label="Default select example">
+                  <option selected>Selecione una Categoria</option>
+                </select>
+              </div>
+              <div class="mt-3 mb-2">
+                <label for="formFileSm" class="form-label mt-2 fs-5">Image</label>
+                <input class="form-control form-control-sm Image" placeholder="Ingrese URL De La Imagen" id="formFileSm"
+                  type="url">
+              </div>
+            </form>
+            <div class="bg-dark bg-opacity-75 d-flex justify-content-around modal-footer">
+              <button type="button" class="btn btn-danger" style="width: 40%;" data-bs-dismiss="modal">Cancelar</button>
+              <button class="btn btn-primary" style="width: 40%;" type="submit" onclick="Create_Update_Product(event)"
+                id="btnModal">Crear Nuevo Producto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./dist/js/bootstrap.min.js"></script>
+  <script src="index.js"></script>
+</body>
+
+</html>
